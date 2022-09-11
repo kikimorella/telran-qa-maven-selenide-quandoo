@@ -27,7 +27,6 @@ public class MakeAnEnquiryPage extends Page{
     // methods
     public void fillInDataFields() {
         faker = new Faker();
-
         $(emailField).setValue(faker.internet().emailAddress());
         $(firstNameField).setValue(faker.name().firstName());
         $(lastNameField).setValue(faker.name().lastName());
