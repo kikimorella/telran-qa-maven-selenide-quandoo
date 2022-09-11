@@ -1,16 +1,14 @@
 package Quandoo.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class MakeAnEnquiryPage {
+public class MakeAnEnquiryPage extends Page{
 
-    private static By acceptCookies = By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll");
-
-    Faker faker;
-
+    // locators
     private static final By emailField = By.xpath("//*[@data-qa='input-email']");
     private static final By firstNameField = By.xpath("//*[@data-qa='input-first-name']");
     private static final By lastNameField = By.xpath("//*[@data-qa='input-last-name']");
@@ -26,6 +24,7 @@ public class MakeAnEnquiryPage {
     private static final By sevenPM = By.xpath("//*[@data-qa='widget-time-picker-start']//option[contains( text(),'7:00 pm')]");
     private static final By sevenThirtyPM = By.xpath("//*[@data-qa='widget-time-picker-start']//option[contains( text(),'7:30 pm')]");
 
+    // methods
     public void fillInDataFields() {
         faker = new Faker();
 
@@ -48,11 +47,11 @@ public class MakeAnEnquiryPage {
         $(sevenThirtyPM).click();
     }
 
-    public boolean checkSendEnquiryBtnExists() {
-        return $(sendEnquiryBtn).isDisplayed();
+    public void clickOnSendEnquiryBtn() {
+        $(sendEnquiryBtn).click();
     }
 
-    public void clickAcceptCookiesBtn() {
-        $(acceptCookies).click();
+    public SelenideElement sendEnquiryBtnElt() {
+        return $(sendEnquiryBtn);
     }
 }
