@@ -5,15 +5,12 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class HomePage {
+public class HomePage extends Page {
 
-    private static By acceptCookies = By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll");
+    // locators
     private static By signUpBtn = By.xpath("//*[@data-qa='header-register-btn']");
 
-    public void clickAcceptCookiesBtn() {
-        $(acceptCookies).click();
-    }
-
+    // methods
     public SignUpPage clickOnSignUpBtn() {
         $(signUpBtn).click();
         return page(SignUpPage.class);
