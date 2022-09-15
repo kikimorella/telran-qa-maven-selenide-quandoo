@@ -22,7 +22,8 @@ public class MakeAnEnquiryPage extends Page{
     private static final By nextMonth = By.xpath("//*[@data-qa='day-picker-navbar-next']");
     private static final By firstDayOfTheMonth = By.xpath("//*[@class='DayPicker-Day'][@tabindex='0']");
     private static final By sevenPM = By.xpath("//*[@data-qa='widget-time-picker-start']//option[contains( text(),'7:00 pm')]");
-    private static final By sevenThirtyPM = By.xpath("//*[@data-qa='widget-time-picker-start']//option[contains( text(),'7:30 pm')]");
+    // selectOption(String)
+    private static final By sevenThirtyPM = By.xpath("//*[@data-qa='widget-time-picker-end']//option[contains( text(),'7:30 pm')]");
 
     // methods
     public void fillInDataFields() {

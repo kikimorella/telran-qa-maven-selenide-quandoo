@@ -6,6 +6,7 @@ import com.codeborne.selenide.Condition;
 import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Test;
 
+import static Quandoo.pages.Page.BASE_URL;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
@@ -13,6 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class SighUpTest {
 
+    // classes
     HomePage homePage;
     SignUpPage signUpPage;
 
@@ -22,7 +24,7 @@ public class SighUpTest {
      */
     public void signUpWithoutTermsAndPrivacy() {
         //open page
-        homePage = open("https://www.quandoo.de/en", HomePage.class);
+        homePage = open(BASE_URL, HomePage.class);
         homePage.acceptCookies();
         signUpPage = homePage.clickOnSignUpBtn();
         //insert data to all fields

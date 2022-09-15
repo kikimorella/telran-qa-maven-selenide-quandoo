@@ -4,6 +4,7 @@ import Quandoo.pages.MakeAnEnquiryPage;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
+import static Quandoo.pages.Page.ENQUIRY_URL;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class MakeAnEnquiryTest {
 
+    // classes
     MakeAnEnquiryPage makeAnEnquiryPage;
 
     @Test
@@ -19,9 +21,10 @@ public class MakeAnEnquiryTest {
      */
     public void enquiryWithoutTermsAndPrivacy() {
         //open
-        makeAnEnquiryPage = open("https://www.quandoo.de/en/checkout/enquiry?restaurantUrl=cavallino-rosso-306", MakeAnEnquiryPage.class);
+        makeAnEnquiryPage = open(ENQUIRY_URL, MakeAnEnquiryPage.class);
         makeAnEnquiryPage.acceptCookies();
         //choose date and time
+        makeAnEnquiryPage.sendEnquiryBtnElt().attr("disabled"); // поймать атрибут disabled - attr(String)
         makeAnEnquiryPage.dayChoose();
         makeAnEnquiryPage.timeChoose();
         //fill in data
@@ -29,6 +32,6 @@ public class MakeAnEnquiryTest {
         //check required
         //check the btn
         makeAnEnquiryPage.clickOnSendEnquiryBtn();
-        makeAnEnquiryPage.sendEnquiryBtnElt().should(Condition.visible);
+//        makeAnEnquiryPage.sendEnquiryBtnElt().attr("disabled"); // поймать отсутствие атрибута disabled - attr(String)
     }
 }
