@@ -25,7 +25,7 @@ public class LoginTest {
         homePage.acceptCookies();
         loginPage = homePage.clickOnLoginBtn();
         loginPage.fillInValidCred();
-        loginPage.clickOnLoginBtn();
+        loginPage.clickOnLoginBtnHP();
         homePage.userIconPresent();
     }
 }
