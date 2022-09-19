@@ -1,12 +1,13 @@
 package Quandoo.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class MakeAnEnquiryPage extends Page{
+public class RestaurantEnquiryPage extends Page{
 
     // locators
     private static final By emailField = By.xpath("//*[@data-qa='input-email']");
@@ -47,8 +48,12 @@ public class MakeAnEnquiryPage extends Page{
         $(sevenThirtyPM).click();
     }
 
-    public void clickOnSendEnquiryBtn() {
-        $(sendEnquiryBtn).click();
+//    public void clickOnSendEnquiryBtn() {
+//        $(sendEnquiryBtn).click();
+//    }
+
+    public void sendEnquiryBtnIsActive() {
+        $(sendEnquiryBtn).shouldBe(Condition.visible).isEnabled();
     }
 
     public SelenideElement sendEnquiryBtnElt() {
