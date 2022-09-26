@@ -1,14 +1,13 @@
 package Quandoo.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class HomePage extends Page {
+public class Homepage extends Page {
 
-    HomePage homePage;
+    Homepage homepage;
     FilterPage filterPage;
 
     // locators
@@ -49,8 +48,8 @@ public class HomePage extends Page {
     }
 
     public void fillInTheRestaurant() {
-        homePage.fillDestinationField(RESTAURANT_CITY);
-        homePage.fillRestaurantField(RESTAURANT_NAME);
-        filterPage = homePage.clickOnFindBtn();
+        homepage.fillDestinationField(RESTAURANT_CITY);
+        homepage.fillRestaurantField(RESTAURANT_NAME);
+        filterPage = homepage.clickOnFindBtn();
     }
 }

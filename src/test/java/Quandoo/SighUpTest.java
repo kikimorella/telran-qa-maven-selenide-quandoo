@@ -1,9 +1,8 @@
 package Quandoo;
 
-import Quandoo.pages.HomePage;
+import Quandoo.pages.Homepage;
 import Quandoo.pages.SignUpPage;
 import com.codeborne.selenide.Condition;
-import dev.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Test;
 
 import static Quandoo.pages.Page.BASE_URL;
@@ -15,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class SighUpTest {
 
     // classes
-    HomePage homePage;
+    Homepage homepage;
     SignUpPage signUpPage;
 
     @Test
@@ -24,9 +23,9 @@ public class SighUpTest {
      */
     public void signUpWithoutTermsAndPrivacy() {
         //open page
-        homePage = open(BASE_URL, HomePage.class);
-        homePage.acceptCookies();
-        signUpPage = homePage.clickOnSignUpBtn();
+        homepage = open(BASE_URL, Homepage.class);
+        homepage.accCookies();
+        signUpPage = homepage.clickOnSignUpBtn();
         //insert data to all fields
         signUpPage.fillInSignUpFields();
         //Click on Create Account

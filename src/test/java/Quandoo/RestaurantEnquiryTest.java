@@ -1,6 +1,7 @@
 package Quandoo;
 
 import Quandoo.pages.RestaurantEnquiryPage;
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
 import static Quandoo.pages.Page.ENQUIRY_URL;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class RestaurantEnquiryTest {
 
     // classes
-    RestaurantEnquiryPage restaurantEnquiryPage;
+    RestaurantEnquiryPage enqPage;
 
     @Test
     /**
@@ -20,17 +21,13 @@ public class RestaurantEnquiryTest {
      */
     public void enquiryWithoutTermsAndPrivacy() {
         //open
-        restaurantEnquiryPage = open(ENQUIRY_URL, RestaurantEnquiryPage.class);
-        restaurantEnquiryPage.acceptCookies();
+        enqPage = open(ENQUIRY_URL, RestaurantEnquiryPage.class);
+        enqPage.accCookies();
+        enqPage.sendEnquiryBtnElt().shouldHave(Condition.attribute("disabled"));
         //choose date and time
-        restaurantEnquiryPage.sendEnquiryBtnElt().attr("disabled"); // поймать атрибут disabled
-        restaurantEnquiryPage.dayChoose();
-        restaurantEnquiryPage.timeChoose();
+        enqPage.chooseEnquiryTimeslot("7:00 pm", "7:30 pm");
         //fill in data
-        restaurantEnquiryPage.fillInDataFields();
-        //check required
-        //check the btn
-        restaurantEnquiryPage.sendEnquiryBtnIsActive();
-//        RestaurantEnquiryTest.clickOnSendEnquiryBtn();
+        enqPage.fillInDataFields();
+        enqPage.sendEnquiryBtnElt().shouldNotHave(Condition.attribute("disabled"));
     }
 }

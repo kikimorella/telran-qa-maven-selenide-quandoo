@@ -28,7 +28,7 @@ public abstract class Page {
     private static final By accCookiesBtn = By.id("CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll");
 
     // Methods
-    public void acceptCookies() {
+    public void accCookies() {
         $(accCookiesBtn).click();
     }
 

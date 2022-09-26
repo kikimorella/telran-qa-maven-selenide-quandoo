@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class End2EndTest {
 
-    HomePage homePage;
+    Homepage homepage;
     LoginPage loginPage;
     FilterPage filterPage;
     RestaurantPage restaurantPage;
@@ -33,19 +33,19 @@ public class End2EndTest {
     клик на иконку Логин, выбор в drop-down поля Reservations (переход на страницу поля)
     убедиться, что в Upcoming reservations отражена страница ресторана, есть кнопка Cancel
     */
-        homePage = open(BASE_URL, HomePage.class);
-        homePage.acceptCookies();
+        homepage = open(BASE_URL, Homepage.class);
+        homepage.accCookies();
 
-        loginPage = homePage.clickOnLoginBtn();
+        loginPage = homepage.clickOnLoginBtn();
 
         loginPage.fillInValidCred();
         loginPage.clickOnLoginBtnHP();
 
-        homePage.userIconPresent();
+        homepage.userIconPresent();
 
-        homePage.fillRestaurantField(RESTAURANT_NAME);
-        homePage.fillDestinationField(RESTAURANT_CITY);
-        filterPage = homePage.clickOnFindBtn();
+        homepage.fillRestaurantField(RESTAURANT_NAME);
+        homepage.fillDestinationField(RESTAURANT_CITY);
+        filterPage = homepage.clickOnFindBtn();
 
         restaurantPage = filterPage.clickOnRestaurant();
 
@@ -75,12 +75,12 @@ public class End2EndTest {
         клик на иконку Логин, выбор в drop-down поля Reservations (переход на страницу поля)
         убедиться, что в Upcoming reservations отражена страница ресторана, есть кнопка Cancel
         */
-        homePage = open(BASE_URL, HomePage.class);
-        homePage.acceptCookies();
+        homepage = open(BASE_URL, Homepage.class);
+        homepage.accCookies();
 
-        homePage.fillRestaurantField(RESTAURANT_NAME);
-        homePage.fillDestinationField(RESTAURANT_CITY);
-        filterPage = homePage.clickOnFindBtn();
+        homepage.fillRestaurantField(RESTAURANT_NAME);
+        homepage.fillDestinationField(RESTAURANT_CITY);
+        filterPage = homepage.clickOnFindBtn();
 
         restaurantPage = filterPage.clickOnRestaurant();
 
@@ -100,11 +100,11 @@ public class End2EndTest {
 
     @Test
     public void ShortFirstLogInThanRestaurantReservation() {
-        homePage = open(BASE_URL, HomePage.class);
-        homePage.acceptCookies();
-        loginPage = homePage.clickOnLoginBtn();
+        homepage = open(BASE_URL, Homepage.class);
+        homepage.accCookies();
+        loginPage = homepage.clickOnLoginBtn();
         loginPage.fullLogin();
-        homePage.fillInTheRestaurant();
+        homepage.fillInTheRestaurant();
         restaurantPage = filterPage.clickOnRestaurant();
         restaurantPage.reserveNow();
         checkoutSummaryPage = reservationPage.clickOnReserveNowBtn();
@@ -114,9 +114,9 @@ public class End2EndTest {
 
     @Test
     public void ShortFirstRestaurantReservationAndThanLogIn() {
-        homePage = open(BASE_URL, HomePage.class);
-        homePage.acceptCookies();
-        homePage.fillInTheRestaurant();
+        homepage = open(BASE_URL, Homepage.class);
+        homepage.accCookies();
+        homepage.fillInTheRestaurant();
         restaurantPage = filterPage.clickOnRestaurant();
         restaurantPage.reserveNow();
         loginPage = reservationPage.clickOnLoginBtn();

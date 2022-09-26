@@ -20,9 +20,9 @@ public class LoginPage extends Page {
         $(passwordField).setValue(VALID_PASS);
     }
 
-    public HomePage clickOnLoginBtnHP() {
+    public Homepage clickOnLoginBtnHP() {
         $(loginBtn).click();
-        return page(HomePage.class);
+        return page(Homepage.class);
     }
 
     public ReservationPage clickOnLoginBtnRP() {
